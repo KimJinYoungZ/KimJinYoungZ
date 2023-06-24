@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+p {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navyBtn {
+    display: block;
+    margin: 0 auto;
+    background-color: green;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.greenBtn {
+    display: block;
+    margin: 0 auto;
+    background-color: green;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.greenBtn:hover {
+    background-color: darkgreen;
+}
+button {
+    text-align: center;
+}
+.navyBtn:hover {
+    background-color: darkgreen;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+#loginInfo {
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+#clockContainer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clock {
+    color: gray;
+    font-size: 50px;
+}
+
+#apm {
+    color: gray;
+    font-size: 25px;
+}

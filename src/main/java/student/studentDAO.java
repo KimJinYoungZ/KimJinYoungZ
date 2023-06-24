@@ -1,0 +1,53 @@
+package student;
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class studentDAO {
+
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	
+	public studentDAO()
+	{
+		try 
+		{
+			String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
+			String dbID = "root";
+			String dbPassword = "1230";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public int login(String studentID, String studentPassword)
+	{
+		
+		String SQL = "SELECT studentPassword FROM student WHERE studentID =?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,  studentID);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				if (rs.getString(1).equals(studentPassword)) {
+					return 1; // 로그인 성공
+				} else {
+					return 0; // 비밀번호 불일치
+				}
+			}
+			return -1; // 아이디가 없음.
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //데이터베이스 오류
+	}
+}
